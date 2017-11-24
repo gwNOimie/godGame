@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('pixi-angular App', () => {
+describe('god-frontend App', () => {
   let page: AppPage;
 
   beforeEach(() => {
