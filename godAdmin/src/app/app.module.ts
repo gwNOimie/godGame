@@ -19,6 +19,8 @@ import { ElectricityBonusListComponent } from './pages/electricity-bonus-list/el
 import { ExplosiveBonusListComponent } from './pages/explosive-bonus-list/explosive-bonus-list.component';
 import { PlayerListComponent } from './pages/player-list/player-list.component';
 import { RoutingModule } from './modules/routing/routing.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -37,12 +39,13 @@ import { RoutingModule } from './modules/routing/routing.module';
     FireBonusListComponent,
     ElectricityBonusListComponent,
     ExplosiveBonusListComponent,
-    PlayerListComponent
+    PlayerListComponent,
   ],
   imports: [
     BrowserModule,
     RoutingModule,
     HttpClientModule,
+    NgbModule.forRoot()
   ],
   providers: [DatabaseService],
   bootstrap: [AppComponent]

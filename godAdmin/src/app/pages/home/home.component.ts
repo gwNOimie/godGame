@@ -11,9 +11,9 @@ export class HomeComponent implements OnInit {
   constructor(private db: DatabaseService) { }
 
   ngOnInit() {
-    this.db.getDrones().then(data => {
-      console.log(data);
-    });
+    //this.db.getDrones().then(data => {
+      //console.log(data);
+    //});
   }
 
 }
