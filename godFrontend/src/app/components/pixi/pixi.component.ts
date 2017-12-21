@@ -14,7 +14,6 @@ export class PixiComponent implements OnInit {
   ngOnInit() {
     this.target = document.getElementById('pixi-container');
     this.pixi.init(this.target);
-
   }
 
   adjustCanvasSize() {
