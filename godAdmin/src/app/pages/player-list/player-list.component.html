@@ -1,3 +1,24 @@
-<p>
-  player-list works!
-</p>
+<div class="container-fluid">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Sign-up date</th>
+        <th scope="col">Gold</th>
+        <th scope="col">Total gold</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of playerList">
+        <th scope="row">{{player._id}}</th>
+        <td>{{player.pseudo}}</td>
+        <td>{{player.email}}</td>
+        <td>{{player.signUpDate}}</td>
+        <td>{{player.gold}}</td>
+        <td>{{player.totalGold}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

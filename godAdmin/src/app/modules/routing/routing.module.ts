@@ -27,7 +27,7 @@ const appRoutes: Routes = [
 	{ path: 'weapons', component: WeaponListComponent},
 	{ path: 'propellers', component: PropellerListComponent},
 	{ path: 'fire', component: FireBonusListComponent},
-	{ path: 'electricity', component: ExplosiveBonusListComponent},
+	{ path: 'electricity', component: ElectricityBonusListComponent},
 	{ path: 'explosive', component: ExplosiveBonusListComponent},
 	{ path: '**', component: PageNotFoundComponent }
 ];
