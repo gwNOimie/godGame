@@ -20,6 +20,7 @@ import { ExplosiveBonusListComponent } from './pages/explosive-bonus-list/explos
 import { PlayerListComponent } from './pages/player-list/player-list.component';
 import { RoutingModule } from './modules/routing/routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -45,7 +46,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     RoutingModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FormsModule
   ],
   providers: [DatabaseService],
   bootstrap: [AppComponent]

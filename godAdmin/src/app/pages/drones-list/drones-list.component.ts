@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DronesListComponent implements OnInit {
   dronesList: any;
+  newDrone= {};
 
   constructor(private db: DatabaseService) { }
 
@@ -16,6 +17,19 @@ export class DronesListComponent implements OnInit {
       console.log('drones.getlist : ', data);
       this.dronesList = data;
     });
+  }
+
+  addDrone() {
+    this.db.add('drones', newDrone).then((data) => {
+        console.log("Drone : ", data);
+        this.db.getList('drones').then((data) => {
+          console.log('drones.getlist : ', data);
+          this.dronesList = data;
+        });
+      }).catch((error) => {
+        console.log("Error 'add Drone' : ", error);
+      });
+    }
   }
 
 }
