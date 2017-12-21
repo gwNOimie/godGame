@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DatabaseService {
+  baseUrl = 'http://localhost:3000';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
+  getDrones() {
+    return this.http.get(`${this.baseUrl}/drones`).toPromise();
+  }
 }

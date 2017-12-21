@@ -1,6 +1,7 @@
+import { DatabaseService } from './services/database/database.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -17,6 +18,7 @@ import { FireBonusListComponent } from './pages/fire-bonus-list/fire-bonus-list.
 import { ElectricityBonusListComponent } from './pages/electricity-bonus-list/electricity-bonus-list.component';
 import { ExplosiveBonusListComponent } from './pages/explosive-bonus-list/explosive-bonus-list.component';
 import { PlayerListComponent } from './pages/player-list/player-list.component';
+import { RoutingModule } from './modules/routing/routing.module';
 
 
 @NgModule({
@@ -38,9 +40,11 @@ import { PlayerListComponent } from './pages/player-list/player-list.component';
     PlayerListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
