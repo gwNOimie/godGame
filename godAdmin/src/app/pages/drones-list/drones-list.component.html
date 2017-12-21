@@ -1,3 +1,28 @@
-<p>
-  drones-list works!
-</p>
+<div class="container-fluid">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Description</th>
+        <th scope="col">Niveau</th>
+        <th scope="col">Points de vie</th>
+        <th scope="col">Points d'action</th>
+        <th scope="col">Source</th>
+        <th scope="col">Cout</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let drone of dronesList">
+        <th scope="row">{{drone._id}}</th>
+        <td>{{drone.name}}</td>
+        <td>{{drone.description}}</td>
+        <td>{{drone.level}}</td>
+        <td>{{drone.life}}</td>
+        <td>{{drone.actionPoints}}</td>
+        <td>{{drone.source}}</td>
+        <td>{{drone.cost}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
