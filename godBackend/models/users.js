@@ -16,3 +16,4 @@ var player = new mongoose.Schema({
 var getList = () => {
 
 }
+
