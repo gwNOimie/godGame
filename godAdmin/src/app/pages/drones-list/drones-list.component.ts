@@ -20,16 +20,15 @@ export class DronesListComponent implements OnInit {
   }
 
   addDrone() {
-    this.db.add('drones', newDrone).then((data) => {
-        console.log("Drone : ", data);
-        this.db.getList('drones').then((data) => {
-          console.log('drones.getlist : ', data);
+    this.db.add('drones', this.newDrone).then((data) => {
+        console.log('Drone : ', data);
+        this.db.getList('drones').then((otherData) => {
+          console.log('drones.getlist : ', otherData);
           this.dronesList = data;
+          this.dronesList = Array.of(this.dronesList);
         });
       }).catch((error) => {
-        console.log("Error 'add Drone' : ", error);
+        console.log('Error add Drone : ', error);
       });
     }
   }
-
-}
