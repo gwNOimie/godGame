@@ -1,3 +1,16 @@
-<p>
-  explosive-bonus-list works!
-</p>
+<div class="container-fluid">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Number of tiles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let explosive of explosiveBonusList">
+        <th scope="row">{{explosive._id}}</th>
+        <td>{{explosive.tile}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

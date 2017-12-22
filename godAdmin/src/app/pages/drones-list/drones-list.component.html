@@ -3,16 +3,28 @@
     <thead class="thead-dark">
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Nom</th>
+        <th scope="col">Name</th>
         <th scope="col">Description</th>
-        <th scope="col">Niveau</th>
-        <th scope="col">Points de vie</th>
-        <th scope="col">Points d'action</th>
-        <th scope="col">Source</th>
-        <th scope="col">Cout</th>
+        <th scope="col">Level</th>
+        <th scope="col">Health</th>
+        <th scope="col">Action points</th>
+        <th scope="col">Picture</th>
+        <th scope="col">Cost</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td></td>
+        <td><input type="text" name="name" [(ngModel)]="newDrone.name"></td>
+        <td><input type="text" name="Description" [(ngModel)]="newDrone.description"></td>
+        <td><input type="number" name="Level" [(ngModel)]="newDrone.level"></td>
+        <td><input type="number" name="Health" [(ngModel)]="newDrone.life"></td>
+        <td><input type="number" name="Action points" [(ngModel)]="newDrone.actionPoints"></td>
+        <td><input type="" name="Picture" [(ngModel)]="newDrone.source"></td>
+        <td><input type="number" name="Cost" [(ngModel)]="newDrone.cost"></td>
+        <td><input type="submit" value="Add" (click)="addDrone()"></td>
+      </tr>
       <tr *ngFor="let drone of dronesList">
         <th scope="row">{{drone._id}}</th>
         <td>{{drone.name}}</td>
@@ -22,6 +34,7 @@
         <td>{{drone.actionPoints}}</td>
         <td>{{drone.source}}</td>
         <td>{{drone.cost}}</td>
+        <td><input type="button" value="Delete"></td>
       </tr>
     </tbody>
   </table>
