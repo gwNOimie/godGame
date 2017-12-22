@@ -8,7 +8,18 @@ export class DatabaseService {
   constructor(private http: HttpClient) { }
 
   getList(entity: string) {
-    return this.http.get(`${DbConfig.baseUrl}/${entity}`).toPromise();
+    return new Promise((resolve, reject) => {
+      this.http.get(`${DbConfig.baseUrl}/${entity}`).toPromise().then((data) => {
+        const dataArray = [];
+        // tslint:disable-next-line:forin
+        for (const key in data) {
+          dataArray.push(data[key]);
+        }
+        resolve(dataArray);
+      }).catch((error) => {
+        reject(error);
+      });
+    });
   }
 
   getOne(entity: string, id) {
@@ -24,6 +35,6 @@ export class DatabaseService {
   }
 
   update(entity: string, object) {
-    return this.http.post(`${DbConfig.baseUrl}/${entity}/${object.id}`, object).toPromise();
+    return this.http.post(`${DbConfig.baseUrl}/${entity}/${object._id}`, object).toPromise();
   }
 }
