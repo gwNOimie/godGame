@@ -1,5 +1,7 @@
+import { DroneUpdateComponent } from './../../modals/drone-update/drone-update.component';
 import { DatabaseService } from './../../services/database/database.service';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-drones-list',
@@ -8,19 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DronesListComponent implements OnInit {
   dronesList: any;
-  newDrone= {};
+  newDrone = {};
 
-  constructor(private db: DatabaseService) { }
+  constructor(private db: DatabaseService, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.dronesList = [];
     this.db.getList('drones').then((data) => {
-      console.log('drones.getlist : ', data);
       this.dronesList = data;
     });
   }
 
   addDrone() {
     this.db.add('drones', this.newDrone).then((data) => {
+<<<<<<< HEAD
         console.log('Drone : ', data);
         this.db.getList('drones').then((otherData) => {
           console.log('drones.getlist : ', otherData);
@@ -32,3 +35,38 @@ export class DronesListComponent implements OnInit {
       });
     }
   }
+=======
+      console.log('Drone : ', data);
+      this.db.getList('drones').then((otherData) => {
+        console.log('drones.getlist : ', otherData);
+        this.dronesList = otherData;
+      });
+      this.newDrone = {};
+    }).catch((error) => {
+      console.log('Error in add Drone : ', error);
+    });
+  }
+
+  deleteDrone(id) {
+    this.db.delete('drones', id).then((data) => {
+      this.db.getList('drones').then((otherData) => {
+        console.log('drones.getlist : ', otherData);
+        this.dronesList = otherData;
+      });
+    }).catch((error) => {
+      console.log('Error in delete Drone : ', error);
+    });
+  }
+
+  openModalUpdate(drone) {
+    const modalRef = this.modalService.open(DroneUpdateComponent);
+    modalRef.componentInstance.drone = { ...drone };
+    modalRef.result.then(() => {
+      this.db.getList('drones').then((data) => {
+        console.log('drones.getlist : ', data);
+        this.dronesList = data;
+      });
+    }).catch(() => { });
+  }
+}
+>>>>>>> 7e82ce4d620bc7c6884ee705a82cf55593f95817

@@ -11,19 +11,14 @@ import 'rxjs/add/observable/of';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private phaser: PhaserService) {
-    // this.phaser.initGame();
-  }
+  constructor(private phaser: PhaserService) { }
 
   ngOnInit() {
-    const subscription = this.phaser.isFullyLoaded.subscribe((value) => {
-      // if (value) {
-      //   this.phaser.game.add.sprite(0, 0, 'cat');
-      //   subscription.unsubscribe();
-      // } else {
-      //   console.log('false');
-      // }
-      console.log(value);
+    const subscription = this.phaser.fullyLoaded.subscribe((value) => {
+      if (value) {
+        this.phaser.game.add.sprite(0, 0, 'cat');
+        subscription.unsubscribe();
+      }
     });
   }
 
