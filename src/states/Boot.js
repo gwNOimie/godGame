@@ -4,6 +4,7 @@ import config from '../config'
 
 export default class extends Phaser.State {
   init () {
+    this.scale.scaleMode = Phaser.ScaleManager.RESIZE
     this.stage.backgroundColor = '#E4E6E7'
     this.fontsReady = false
     this.fontsLoaded = this.fontsLoaded.bind(this)
