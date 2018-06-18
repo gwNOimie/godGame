@@ -87,6 +87,10 @@ export default class extends Phaser.State {
           // TODO: show error for a while on screen
         })
     }
+
+    function signup () {
+
+    }
   }
 
   render () {
