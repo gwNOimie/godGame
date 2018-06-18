@@ -3,7 +3,7 @@ import Phaser from 'phaser'
 import _PhaserInput from '@orange-games/phaser-input/build/phaser-input'
 
 import { centerGameObjects } from '../utils'
-import { userService } from '../services/userService'
+import userService from '../services/userService'
 
 const PhaserInput = _PhaserInput.PhaserInput
 export default class extends Phaser.State {
@@ -20,7 +20,7 @@ export default class extends Phaser.State {
     const presentation = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 
     this.titleBanner = this.add.text(this.world.centerX, 80, title, {
-      font: '40px Russo One',
+      font: '4em Russo One',
       fill: '#000000',
       smoothed: false
     })
@@ -28,7 +28,7 @@ export default class extends Phaser.State {
     let presentationBanner = this.add.text(this.world.centerX, 160, presentation, {
       align: 'center',
       wordWrap: true,
-      font: '20px Russo One',
+      font: '2em Russo One',
       fill: '#000000',
       wordWrapWidth: this.world.width - 100,
       smoothed: false
