@@ -25,7 +25,7 @@ export default class extends Phaser.State {
       smoothed: false
     })
 
-    let presentationBanner = this.add.text(this.world.centerX, 160, presentation, {
+    this.presentationBanner = this.add.text(this.world.centerX, 160, presentation, {
       align: 'center',
       wordWrap: true,
       font: '2em Russo One',
@@ -37,8 +37,8 @@ export default class extends Phaser.State {
     this.titleBanner.padding.set(10, 16)
     this.titleBanner.anchor.setTo(0.5)
 
-    presentationBanner.padding.set(10, 16)
-    presentationBanner.anchor.x = 0.5
+    this.presentationBanner.padding.set(10, 16)
+    this.presentationBanner.anchor.x = 0.5
 
     const leftDrone = this.game.add.sprite(this.world.width / 3, this.world.height / 3, 'drone')
     const rightDrone = this.game.add.sprite(this.world.width * 2 / 3, this.world.height / 3, 'drone')
@@ -68,10 +68,13 @@ export default class extends Phaser.State {
       placeHolder: 'Password',
       type: 'password'
     })
+    centerGameObjects([loginInput, passwordInput])
 
-    const submitBtn = this.game.add.button(this.world.width / 2, (this.world.height / 3) + 100, 'drone', submit, this, 2, 1, 0)
+    const signinButton = this.game.add.button(this.world.width / 2, (this.world.height / 3) + 100, 'drone', signin, this, 2, 1, 0)
+    const signupButton = this.game.add.button(this.world.width / 2, (this.world.height / 3) + 100, 'drone', signup, this, 2, 1, 0)
+    centerGameObjects([signinButton, signupButton])
 
-    function submit () {
+    function signin () {
       console.log(loginInput.value, passwordInput.value)
       userService.login(loginInput.value, passwordInput.value)
         .then(result => {
